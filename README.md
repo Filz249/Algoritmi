@@ -1,7 +1,18 @@
 <details>
 <summary><strong>1. Što je algoritam? Primjer.</strong></summary>
 
+**Alogoritam** je i dio posla u procesu koji od uočenog problema dovodi do rezultata (najčešće pomoću računalnog programa).
+- Primjer algoritma računanja dva broja:
 
+1. Učitaj prvi broj A.
+
+2. Učitaj drugi broj B.
+
+3. Izračunaj S = A + B.
+
+4. Ispiši rezultat S.
+
+5. Kraj algoritma.
 
 </details>
 
@@ -11,7 +22,9 @@
 
 <details>
 <summary><strong>2. Koja je razlika između algoritma i programa?</strong></summary>
-
+  
+**Algoritam** je točno definiran niz koraka za rješavanje nekog problema i može biti zapisan riječima.
+**Program** je implementacija algoritma u nekom programskom jeziku koju računalo može izvršiti i mora imati točnu sintaksu.
 
 
 </details>
@@ -23,7 +36,8 @@
 <details>
 <summary><strong>3. Znakovni tip podataka. Kako se prikazuje u memoriji, a kako na ekranu?</strong></summary>
 
-
+Znakovni tip podataka char predstavlja slovo, broj, simbol ili kontrolni znak.
+U memoriji se znak ne sprema kao znak, nego kao numerički kod prema nekom standardu npr ASCII, a na ekranu se prevede pomoću tablice kodiranja te se prikaže odgovarajući znak.
 
 </details>
 
@@ -34,6 +48,14 @@
 <details>
 <summary><strong>4. Cjelobrojni tip podataka. Vrste i raspon vrijednosti.</strong></summary>
 
+Vrste cjelobrojnih tipova su char, short, int, long, signed i unsigned.
+
+| Tip | Veličina | Raspon vrijednosti |
+|---|---|---|
+| `char` | 1 bajt (8 bitova) | −128 do 127 |
+| `short` | 2 bajta (16 bitova) | −32 768 do 32 767 |
+| `int` | 4 bajta (32 bita) | −2 147 483 648 do 2 147 483 647 |
+| `long` | 4 ili 8 bajtova (64 bita) | -9223372036854775808 do 9223372036854775807 |
 
 
 </details>
@@ -45,7 +67,7 @@
 <details>
 <summary><strong>5. Cjelobrojni tip podataka. Kako se prikazuje u memoriji?</strong></summary>
 
-
+Cjelobrojni tip podataka u memoriji se prikazuje kao **binarni zapis** 0 i 1.
 
 </details>
 
@@ -56,7 +78,9 @@
 <details>
 <summary><strong>6. Opisati dvostruki (binarni) komplement.</strong></summary>
 
-
+Obavlja se u dva koraka: 
+1. Unarno kompementirati broj (0 -> 1 i 1 -> 0), tj. invertirati
+2. Aritmetički dodati 1
 
 </details>
 
@@ -67,7 +91,7 @@
 <details>
 <summary><strong>7. Realni tip podataka. Kako se prikazuje u memoriji?</strong></summary>
 
-
+Realni tip podataka koristi se za brojeve s decimalnim dijelom, u memoriji se prikazuju prema standardu **IEEE 754**, u obliku predznaka, eksponenta i mantise.
 
 </details>
 
@@ -78,7 +102,8 @@
 <details>
 <summary><strong>8. Realni tip podataka. Greške pomičnog zareza, zbog čega? Primjer.</strong></summary>
 
-
+Kod 32-bitnih brojeva s pomičnim zarezom će raditi samo do određene vrijednosti. Ako je razlika brojeva dovoljno velika, zbrajanje će uvijek dati rezultat jednak većem broju, zbog zaokruživanja.
+Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom obliku.
 
 </details>
 
@@ -89,7 +114,13 @@
 <details>
 <summary><strong>9. Nizovi (jednodimenzionalna polja) kao struktura podataka. Svojstva?</strong></summary>
 
+- **Niz** je skup elemenata istog tipa podataka pohranjenih u kontinuiranom dijelu memorije.
+**Svojstva:**
 
+- ima konačan broj elemenata N
+- svi elementi istog tipa
+- elementi slijede jedan iza drugog
+- direktan pristup svakom elementu O (1)
 
 </details>
 
