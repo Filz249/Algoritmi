@@ -114,7 +114,9 @@ Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom o
 <details>
 <summary><strong>9. Nizovi (jednodimenzionalna polja) kao struktura podataka. Svojstva?</strong></summary>
 
-- **Niz** je skup elemenata istog tipa podataka pohranjenih u kontinuiranom dijelu memorije.
+**Niz** je skup elemenata istog tipa podataka pohranjenih u kontinuiranom dijelu memorije.
+
+  
 **Svojstva:**
 
 - ima konačan broj elemenata N
@@ -131,7 +133,15 @@ Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom o
 <details>
 <summary><strong>10. Algoritam SEKVENCIJALNO PRETRAŽIVANJE niza. Složenost?</strong></summary>
 
+```
+Za svaki i=1 do N činiti 
+  |  Ako je Vi =x onda 
+  |      |  Ispiši “DA, na “,i,”. mjestu” 
+  |      |  Završi algoritam 
+Ispiši “NE”
+```
 
+Vremenska složenost algoritma: O(N) - “linearna složenost”
 
 </details>
 
@@ -142,7 +152,21 @@ Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom o
 <details>
 <summary><strong>11. Algoritam BINARNO PRETRAŽIVANJE niza. Složenost?</strong></summary>
 
+```
+Postaviti dg=1, gg=N 
+Ponavljati  
+  |  Postaviti s=[(dg+gg)/2] 
+  |  Ako je Vs = x onda 
+  |  |  Ispiši “DA, na”,s,”. mjestu” 
+  |  |  Završi algoritam  
+  |  Ako je x>Vs onda dg=s+1  
+  |  Ako je x<Vs onda gg=s-1 
+  |  Ako je dg>gg onda 
+  |  |  Ispiši “NE” 
+  |  | Završi algoritam
+```
 
+Vremenska složenost algoritma: O(log N)  “logaritamska složenost”
 
 </details>
 
@@ -153,6 +177,12 @@ Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom o
 <details>
 <summary><strong>12. Usporedba algoritama sekvencijalnog i binarnog pretraživanja niza.</strong></summary>
 
+| Značajka          | Sekvencijalno                   | Binarno                            |
+| ----------------- | ------------------------------- | ---------------------------------- |
+| **Uvjet**         | Niz može biti nesortiran        | Niz mora biti sortiran             |
+| **Brzina**        | O(n) – sporije za velike nizove | O(log n) – brzo i za velike nizove |
+| **Jednostavnost** | Jednostavno za implementaciju   | Složenije                          |
+| **Primjena**      | Male ili nesortirane nizove     | Velike, sortiran nizove            |
 
 
 </details>
@@ -164,7 +194,18 @@ Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom o
 <details>
 <summary><strong>13. Algoritam SELEKT-SORT. Složenost?</strong></summary>
 
+- Prolazi se kroz polje i pronalazi najmanji element u njemu. Kad se pronađe, zamijeni se s početnim elementom. U sljedećem koraku prvi se element zanemari te se traži najmanji od preostalih elemenata, koji se premjesti na drugo mjesto.
 
+- Vremenska složenost O(N 2) - “kvadratna složenost”
+
+```
+Za i=1 do n-1 činiti
+|  mjesto_min=i;     
+|  za j=i+1 do n činiti
+|  |  ako je a[j]<a[mjesto_min] onda 
+|  |  |  mjesto_min=j     
+|  zamijeni(a[i],a[mjesto_min])
+```
 
 </details>
 
@@ -175,7 +216,12 @@ Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom o
 <details>
 <summary><strong>14. Matrice (dvodimenzionalna polja) kao struktura podataka. Svojstva?</strong></summary>
 
-
+Pravokutna shema podataka 
+**Svojstva:**
+- podaci su raspoređeni u M redaka i N stupaca
+- svi elementi istog tipa
+- direktan pristup svakom elementu
+- Matricu A označavamo preciznije AˇMxN
 
 </details>
 
@@ -186,7 +232,14 @@ Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom o
 <details>
 <summary><strong>15. Primjer algoritma s matricom. Složenost?</strong></summary>
 
-
+Množenje matrica:
+```
+Za svaki i = 1 do m 
+|  Za svaki j = 1 do k 
+|  |  Ci,j = 0 
+|  |  |  Za svaki p = 1 do n 
+|  |  |  |  Ci,j = Ci,j + Ai,p • B
+```
 
 </details>
 
@@ -197,7 +250,13 @@ Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom o
 <details>
 <summary><strong>16. Algoritam MNOŽENJE KVADRATNIH MATRICA. Složenost?</strong></summary>
 
-
+```
+Za i = 1 do n:
+|  Za j = 1 do n:
+|  |  C[i,j] = 0
+|  |  Za k = 1 do n:
+|  |  |  C[i,j] = C[i,j] + A[i,k] * B[k,j]
+```
 
 </details>
 
@@ -208,8 +267,53 @@ Nastaju zbog načina na koji računala pohranjuju decimalne brojeve u binarnom o
 <details>
 <summary><strong>17. Statičko i dinamičko alociranje memorije. Objasniti na primjeru niza.</strong></summary>
 
+**Statičko:**
 
+- Veličina niza mora biti poznata unaprijed.
+- Alocirana memorija se automatski oslobodi kada niz izađe iz opsega.
 
+```C
+#include <stdio.h>
+int main() {
+    int niz[5];
+    for(int i = 0; i < 5; i++) {
+        niz[i] = i + 1;
+    }
+    for(int i = 0; i < 5; i++) {
+        printf("%d ", niz[i]);
+    }
+    return 0;
+}
+```
+**Dinamičko:**
+
+- Memorija se dodjeljuje za vrijeme izvođenja programa (runtime).
+- Veličina niza može biti određena u toku izvođenja programa.
+- Potrebno je ručno osloboditi memoriju kada više nije potrebna.
+
+```C
+#include <stdio.h>
+#include <stdlib.h> 
+
+int main() {
+    int n;
+    printf("Velicina niza: ");
+    scanf("%d", &n);
+    int *niz = (int*) malloc(n * sizeof(int));
+    if(niz == NULL) {
+        printf("Greska pri alociranju memorije");
+        return 1;
+    }
+    for(int i = 0; i < n; i++) {
+        niz[i] = i + 1;
+    }
+    for(int i = 0; i < n; i++) {
+        printf("%d ", niz[i]);
+    }
+    free(niz);
+    return 0;
+}
+```
 </details>
 
 ---
